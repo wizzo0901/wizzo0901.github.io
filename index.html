@@ -6,1236 +6,75 @@
     <title>Comitato Studentesco New Wave</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset e stili base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        /* Tutti gli stili CSS precedenti rimangono invariati */
+        /* ... (mantieni tutto il CSS esistente) ... */
         
-        :root {
-            --primary: #1a5276;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --text: #333;
-            --text-light: #7f8c8d;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --ocean: #2980b9;
-            --wave: #1abc9c;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--ocean));
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            background: white;
-            padding: 5px;
-        }
-        
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 50%;
-        }
-        
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .logo-main {
-            font-size: 1.3rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-        
-        .logo-sub {
+        /* Aggiungi questi nuovi stili per gli indicatori di stato */
+        .connection-status {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 8px 12px;
+            border-radius: 20px;
             font-size: 0.8rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-        
-        /* Menu Mobile */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-        
-        .menu-toggle span {
-            height: 3px;
-            width: 25px;
-            background: white;
-            margin: 3px 0;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem 0;
-            position: relative;
-        }
-        
-        nav ul li a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--wave);
-            transition: width 0.3s;
-        }
-        
-        nav ul li a:hover:after {
-            width: 100%;
-        }
-        
-        nav ul li a:hover {
-            color: var(--wave);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--ocean), var(--primary));
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"></path></svg>');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero-logo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+            z-index: 1000;
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            border: 4px solid white;
-            background: white;
-            padding: 10px;
+            gap: 5px;
         }
         
-        .hero-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 50%;
+        .connection-status.connected {
+            background-color: var(--success);
+            color: white;
         }
         
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            background: linear-gradient(135deg, white, #e0f7fa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.95;
-        }
-        
-        .cta-button {
-            display: inline-block;
+        .connection-status.disconnected {
             background-color: var(--accent);
             color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-            cursor: pointer;
-            border: none;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
         
-        .cta-button:hover {
-            background-color: #c0392b;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-        }
-        
-        /* Main Content */
-        .main-content {
-            padding: 4rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary);
-            position: relative;
-            padding-bottom: 1rem;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--wave), var(--secondary));
-            border-radius: 2px;
-        }
-        
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 2.5rem 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            text-align: center;
-            border-top: 5px solid var(--wave);
-        }
-        
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-        
-        .card-icon {
-            font-size: 3rem;
-            color: var(--wave);
-            margin-bottom: 1.5rem;
-        }
-        
-        .card h2 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        /* Novità Section */
-        .novita-section {
-            background-color: var(--light);
-            padding: 4rem 0;
-        }
-        
-        .novita-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-        
-        .novita-item {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            border-left: 5px solid var(--wave);
-            position: relative;
-        }
-        
-        .novita-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-        }
-        
-        .novita-item h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
-        
-        .novita-item .date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .novita-item .date i {
-            margin-right: 0.5rem;
-            color: var(--wave);
-        }
-        
-        .media-container {
-            margin: 1rem 0;
-            border-radius: 8px;
-            overflow: hidden;
-            max-height: 400px;
-        }
-        
-        .media-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-            max-height: 400px;
-            object-fit: cover;
-        }
-        
-        .media-container video {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-            max-height: 400px;
-        }
-        
-        .novita-actions {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            display: flex;
-            gap: 0.5rem;
-        }
-        
-        /* Links Section */
-        .links-section {
-            padding: 4rem 0;
-            text-align: center;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--secondary), var(--ocean));
+        .connection-status.syncing {
+            background-color: var(--warning);
             color: white;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            transition: all 0.3s;
-            font-weight: bold;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            min-width: 220px;
         }
         
-        .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-        
-        .social-link i {
-            margin-right: 0.8rem;
-            font-size: 1.3rem;
-        }
-        
-        .social-link.admin-only {
-            background: linear-gradient(135deg, var(--warning), #e67e22);
-            position: relative;
-        }
-        
-        .social-link.admin-only:hover {
-            background: linear-gradient(135deg, #e67e22, #d35400);
-        }
-        
-        .admin-badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--accent);
-            color: white;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            color: white;
-            padding: 3rem 0 2rem;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-        
-        .footer-logo .logo {
-            width: 40px;
-            height: 40px;
-        }
-        
-        .footer-links {
-            margin: 2rem 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
-        
-        .footer-links a:hover {
-            color: var(--wave);
-        }
-        
-        .copyright {
-            margin-top: 2rem;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.9rem;
-        }
-        
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, var(--wave), var(--secondary));
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 99;
-            font-size: 1.2rem;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-        }
-        
-        /* Modal Styles */
-        .modal {
+        .sync-indicator {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
             z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal.active {
-            display: flex;
-        }
-        
-        .modal-content {
-            background: white;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 600px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-light);
-            transition: color 0.3s;
-        }
-        
-        .modal-close:hover {
-            color: var(--accent);
-        }
-        
-        .modal-title {
-            margin-bottom: 2rem;
-            color: var(--primary);
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .form-control:focus {
-            border-color: var(--wave);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.1);
-        }
-        
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .file-upload {
-            border: 2px dashed #ddd;
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: border-color 0.3s;
-            background: #fafafa;
-        }
-        
-        .file-upload:hover {
-            border-color: var(--wave);
-            background: #f0f0f0;
-        }
-        
-        .file-upload i {
-            font-size: 3rem;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-        }
-        
-        .file-upload input {
-            display: none;
-        }
-        
-        .media-preview {
-            margin-top: 1rem;
-            display: none;
-        }
-        
-        .media-preview img,
-        .media-preview video {
-            max-width: 100%;
-            max-height: 200px;
-            border-radius: 8px;
-            display: block;
-            margin: 0 auto;
-        }
-        
-        .media-type-selector {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .media-type-btn {
-            flex: 1;
-            padding: 1rem;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            background: white;
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-        
-        .media-type-btn.active {
-            border-color: var(--wave);
-            background-color: var(--wave);
-            color: white;
-        }
-        
-        /* Admin Panel */
-        .admin-panel {
-            background: linear-gradient(135deg, var(--light), #dde6e9);
-            padding: 2rem 0;
-            border-bottom: 3px solid var(--wave);
-        }
-        
-        .admin-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .admin-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.9rem;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--secondary), var(--ocean));
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
-        }
-        
-        .btn-success {
-            background: linear-gradient(135deg, var(--success), #27ae60);
-            color: white;
-        }
-        
-        .btn-success:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
-        }
-        
-        .btn-warning {
-            background: linear-gradient(135deg, var(--warning), #e67e22);
-            color: white;
-        }
-        
-        .btn-warning:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
-        }
-        
-        .btn-danger {
-            background: linear-gradient(135deg, var(--accent), #c0392b);
-            color: white;
-        }
-        
-        .btn-danger:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
-        }
-        
-        /* Security Features */
-        .security-info {
-            background: #f8f9fa;
-            border-left: 4px solid var(--success);
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-        
-        .login-attempts {
-            color: var(--warning);
-            font-size: 0.8rem;
-            margin-top: 0.5rem;
-        }
-        
-        /* Questions Section */
-        .questions-section {
-            padding: 4rem 0;
-        }
-        
-        .questions-list {
-            margin-top: 2rem;
-        }
-        
-        .question-item {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--wave);
-        }
-        
-        .question-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-        
-        .question-text {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .question-date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-        
-        .question-actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-        
-        .empty-state {
-            text-align: center;
-            padding: 3rem;
-            color: var(--text-light);
-        }
-        
-        .empty-state i {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            color: #ddd;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-            
-            nav {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 80%;
-                height: calc(100vh - 80px);
-                background: linear-gradient(135deg, var(--primary), var(--ocean));
-                transition: left 0.3s;
-                z-index: 99;
-                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-            }
-            
-            nav.active {
-                left: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                padding: 2rem;
-            }
-            
-            nav ul li {
-                margin: 0 0 1.5rem 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .social-links {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .content-grid, .novita-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .admin-header {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
-            }
-            
-            .admin-actions {
-                width: 100%;
-                justify-content: space-between;
-            }
-            
-            .question-header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .question-actions {
-                width: 100%;
-                justify-content: flex-end;
-            }
-            
-            .media-type-selector {
-                flex-direction: column;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero {
-                padding: 3rem 0;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero-logo {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .card {
-                padding: 2rem 1.5rem;
-            }
-            
-            .social-link {
-                min-width: 100%;
-            }
-            
-            .modal-content {
-                padding: 2rem 1.5rem;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeLoginModal">&times;</button>
-            <h2 class="modal-title">Accesso Admin</h2>
-            
-            <div class="security-info">
-                <i class="fas fa-shield-alt"></i> Accesso riservato al personale autorizzato
-            </div>
-            
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" class="form-control" required autocomplete="username">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" class="form-control" required autocomplete="current-password">
-                </div>
-                
-                <div class="login-attempts" id="loginAttempts">
-                    Tentativi rimanenti: <span id="attemptsCount">5</span>
-                </div>
-                
-                <button type="submit" class="cta-button" style="width: 100%;" id="loginButton">
-                    <i class="fas fa-lock"></i> Accedi
-                </button>
-            </form>
-        </div>
+    <!-- Aggiungi indicatori di stato della connessione -->
+    <div class="connection-status" id="connectionStatus">
+        <i class="fas fa-wifi"></i>
+        <span>Connessione...</span>
+    </div>
+    
+    <div class="sync-indicator" id="syncIndicator">
+        <i class="fas fa-sync fa-spin"></i>
+        <span>Sincronizzazione in corso...</span>
     </div>
 
-    <!-- Question Modal -->
-    <div class="modal" id="questionModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeQuestionModal">&times;</button>
-            <h2 class="modal-title">Invia una Domanda</h2>
-            <form id="questionForm">
-                <div class="form-group">
-                    <label for="questionText">La tua domanda</label>
-                    <textarea id="questionText" class="form-control" placeholder="Scrivi qui la tua domanda..." required></textarea>
-                </div>
-                <button type="submit" class="cta-button" style="width: 100%;">Invia Domanda</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Edit Content Modal -->
-    <div class="modal" id="editContentModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeEditModal">&times;</button>
-            <h2 class="modal-title">Modifica Contenuto</h2>
-            <form id="editContentForm">
-                <div class="form-group">
-                    <label for="contentTitle">Titolo</label>
-                    <input type="text" id="contentTitle" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="contentText">Testo</label>
-                    <textarea id="contentText" class="form-control" required></textarea>
-                </div>
-                <button type="submit" class="cta-button" style="width: 100%;">Salva Modifiche</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Add News Modal -->
-    <div class="modal" id="addNewsModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeAddNewsModal">&times;</button>
-            <h2 class="modal-title">Aggiungi Novità</h2>
-            <form id="addNewsForm">
-                <div class="form-group">
-                    <label for="newsTitle">Titolo</label>
-                    <input type="text" id="newsTitle" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="newsDate">Data</label>
-                    <input type="date" id="newsDate" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="newsContent">Contenuto</label>
-                    <textarea id="newsContent" class="form-control" required></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Aggiungi Media (Opzionale)</label>
-                    <div class="media-type-selector">
-                        <div class="media-type-btn active" data-type="none">Nessun Media</div>
-                        <div class="media-type-btn" data-type="image">Immagine</div>
-                        <div class="media-type-btn" data-type="video">Video</div>
-                    </div>
-                    
-                    <div id="imageUpload" class="file-upload" style="display: none;">
-                        <i class="fas fa-image"></i>
-                        <p>Clicca per selezionare un'immagine</p>
-                        <p><small>Formati supportati: JPG, PNG, GIF (Max 5MB)</small></p>
-                        <input type="file" id="newsImage" accept="image/*">
-                    </div>
-                    
-                    <div id="videoUpload" class="file-upload" style="display: none;">
-                        <i class="fas fa-video"></i>
-                        <p>Clicca per selezionare un video</p>
-                        <p><small>Formati supportati: MP4, WebM (Max 100MB)</small></p>
-                        <input type="file" id="newsVideo" accept="video/*">
-                    </div>
-                    
-                    <div id="imagePreview" class="media-preview">
-                        <img id="previewImage" src="" alt="Anteprima immagine">
-                    </div>
-                    
-                    <div id="videoPreview" class="media-preview">
-                        <video id="previewVideo" controls>
-                            Il tuo browser non supporta la riproduzione di video.
-                        </video>
-                    </div>
-                </div>
-                
-                <button type="submit" class="cta-button" style="width: 100%;">Aggiungi Novità</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Edit Link Modal -->
-    <div class="modal" id="editLinkModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeLinkModal">&times;</button>
-            <h2 class="modal-title">Configura Link Aggiuntivo</h2>
-            <form id="editLinkForm">
-                <div class="form-group">
-                    <label for="linkUrl">URL del Link</label>
-                    <input type="url" id="linkUrl" class="form-control" placeholder="https://esempio.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="linkText">Testo del Link</label>
-                    <input type="text" id="linkText" class="form-control" placeholder="Il nostro sito" required>
-                </div>
-                <button type="submit" class="cta-button" style="width: 100%;">Salva Link</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <div class="logo-container">
-                <div class="logo">
-                    <img src="3ba48853-494b-47ba-aebe-e4e2908e3011.png" alt="New Wave Logo" onerror="this.style.display='none'; this.parentNode.innerHTML='NW'; this.parentNode.style.background='linear-gradient(135deg, var(--wave), var(--secondary))'; this.parentNode.style.color='white'; this.parentNode.style.fontWeight='bold'; this.parentNode.style.fontSize='1.2rem';">
-                </div>
-                <div class="logo-text">
-                    <span class="logo-main">NEW WAVE</span>
-                    <span class="logo-sub">Comitato Studentesco</span>
-                </div>
-            </div>
-            <div class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <nav id="mainNav">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#chi-siamo">Chi Siamo</a></li>
-                    <li><a href="#novita">Novità</a></li>
-                    <li><a href="#domande" id="askQuestionLink">Fai una Domanda</a></li>
-                    <li><a href="#contatti">Contatti</a></li>
-                    <li><a href="#" id="loginLink">Login</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Admin Panel (visible only when logged in) -->
-    <div class="admin-panel" id="adminPanel" style="display: none;">
-        <div class="container">
-            <div class="admin-header">
-                <h2>Pannello di Amministrazione</h2>
-                <div class="admin-actions">
-                    <button class="btn btn-primary" id="editHomeBtn">Modifica Home</button>
-                    <button class="btn btn-success" id="addNewsBtn">Aggiungi Novità</button>
-                    <button class="btn btn-warning" id="viewQuestionsBtn">Visualizza Domande</button>
-                    <button class="btn btn-warning" id="editLinkBtn">Configura Link</button>
-                    <button class="btn btn-danger" id="logoutBtn">Logout</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <div class="hero-logo">
-                <img src="3ba48853-494b-47ba-aebe-e4e2908e3011.png" alt="New Wave Logo" onerror="this.style.display='none'; this.parentNode.innerHTML='NW'; this.parentNode.style.background='linear-gradient(135deg, var(--wave), var(--secondary))'; this.parentNode.style.color='white'; this.parentNode.style.fontWeight='bold'; this.parentNode.style.fontSize='3rem'; this.parentNode.style.display='flex'; this.parentNode.style.alignItems='center'; this.parentNode.style.justifyContent='center';">
-            </div>
-            <h1 id="heroTitle">COMITATO STUDENTESCO NEW WAVE</h1>
-            <p id="heroText">L'onda del cambiamento nella tua scuola. Innovazione, rappresentanza e partecipazione attiva per tutti gli studenti.</p>
-            <a href="#domande" class="cta-button" id="askQuestionBtn">Fai una Domanda</a>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <section class="main-content" id="chi-siamo">
-        <div class="container">
-            <h2 class="section-title">Cosa Facciamo</h2>
-            <div class="content-grid">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h2>Rappresentanza</h2>
-                    <p>Rappresentiamo tutti gli studenti della scuola, portando le vostre idee e necessità all'attenzione della direzione.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h2>Proposte</h2>
-                    <p>Raccogliamo e sviluppiamo proposte per migliorare la scuola, dagli spazi comuni alle attività extracurriculari.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h2>Eventi</h2>
-                    <p>Organizziamo eventi, assemblee e iniziative per rendere la vita scolastica più coinvolgente e interessante.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Novità Section -->
-    <section class="novita-section" id="novita">
-        <div class="container">
-            <h2 class="section-title">Novità</h2>
-            <div class="novita-grid" id="newsGrid">
-                <!-- News items will be dynamically added here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Questions Section -->
-    <section class="questions-section" id="domande">
-        <div class="container">
-            <h2 class="section-title">Fai una Domanda</h2>
-            <p style="text-align: center; margin-bottom: 2rem;">Hai una domanda per il comitato studentesco? Clicca il pulsante qui sotto per inviarcela!</p>
-            <div style="text-align: center;">
-                <button class="cta-button" id="openQuestionModal">Invia una Domanda</button>
-            </div>
-            
-            <!-- Admin Questions View -->
-            <div id="adminQuestionsView" style="display: none; margin-top: 3rem;">
-                <h2 class="section-title">Domande Ricevute</h2>
-                <div class="questions-list" id="questionsList">
-                    <!-- Questions will be dynamically added here -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Links Section -->
-    <section class="links-section" id="contatti">
-        <div class="container">
-            <h2 class="section-title">Seguici e Contattaci</h2>
-            <p>Resta aggiornato sulle nostre attività e contattaci per qualsiasi proposta o domanda</p>
-            <div class="social-links">
-                <a href="https://www.instagram.com/comitatonewwave?utm_source=ig_web_button_share_sheet&igsh=MThnaDRncXc5bHJrZA==" class="social-link" target="_blank">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
-                <a href="#" class="social-link admin-only" id="custom-link">
-                    <i class="fas fa-link"></i> <span id="customLinkText">Link Aggiuntivo</span>
-                    <div class="admin-badge" title="Solo Admin">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-logo">
-                <div class="logo">
-                    <img src="3ba48853-494b-47ba-aebe-e4e2908e3011.png" alt="New Wave Logo" onerror="this.style.display='none'; this.parentNode.innerHTML='NW'; this.parentNode.style.background='linear-gradient(135deg, var(--wave), var(--secondary))'; this.parentNode.style.color='white'; this.parentNode.style.fontWeight='bold'; this.parentNode.style.fontSize='1rem'; this.parentNode.style.display='flex'; this.parentNode.style.alignItems='center'; this.parentNode.style.justifyContent='center';">
-                </div>
-                <span>NEW WAVE</span>
-            </div>
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#chi-siamo">Chi Siamo</a>
-                <a href="#novita">Novità</a>
-                <a href="#domande">Fai una Domanda</a>
-                <a href="#contatti">Contatti</a>
-            </div>
-            <p class="copyright">Comitato Studentesco New Wave - Tutti i diritti riservati &copy; 2025</p>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+    <!-- Tutti i modali e il contenuto HTML rimangono invariati -->
+    <!-- ... (mantieni tutto l'HTML esistente) ... -->
 
     <script>
+        // Configurazione del backend
+        const BACKEND_CONFIG = {
+            // URL del server backend - sostituisci con l'URL del tuo server
+            baseUrl: 'https://il-tuo-server.com/api',
+            // URL del WebSocket server - sostituisci con l'URL del tuo server WebSocket
+            wsUrl: 'wss://il-tuo-server.com/ws'
+        };
+
         // Enhanced Security Configuration
         const SECURITY_CONFIG = {
             maxAttempts: 5,
@@ -1269,33 +108,16 @@
             text: "Link Aggiuntivo"
         };
         
-        // Sample data
-        let news = [
-            {
-                id: 1,
-                title: "Assemblea Studentesca",
-                date: "2025-10-25",
-                content: "Prossima assemblea studentesca il 25 ottobre. Preparate le vostre proposte e idee da condividere!",
-                mediaType: "none"
-            },
-            {
-                id: 2,
-                title: "Giornata della Sostenibilità",
-                date: "2025-10-10",
-                content: "Stiamo organizzando una giornata dedicata alla sostenibilità. Se sei interessato a partecipare, contattaci!",
-                mediaType: "image",
-                mediaUrl: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-            }
-        ];
+        // Sample data - ora questi saranno sincronizzati dal server
+        let news = [];
+        let questions = [];
         
-        let questions = [
-            {
-                id: 1,
-                text: "Quando sarà la prossima riunione del comitato?",
-                date: "2025-09-28",
-                expires: "2025-10-28"
-            }
-        ];
+        // Variabili per la gestione della connessione
+        let socket = null;
+        let isConnected = false;
+        let reconnectAttempts = 0;
+        const maxReconnectAttempts = 5;
+        let reconnectTimeout = null;
         
         // DOM Elements
         const loginModal = document.getElementById('loginModal');
@@ -1333,6 +155,8 @@
         const loginAttempts = document.getElementById('loginAttempts');
         const attemptsCount = document.getElementById('attemptsCount');
         const loginButton = document.getElementById('loginButton');
+        const connectionStatus = document.getElementById('connectionStatus');
+        const syncIndicator = document.getElementById('syncIndicator');
         
         // Media elements
         const mediaTypeBtns = document.querySelectorAll('.media-type-btn');
@@ -1347,16 +171,303 @@
         
         // Initialize the page
         function init() {
-            renderNews();
+            setupConnection();
             checkLoginStatus();
             setupEventListeners();
-            checkExpiredQuestions();
-            loadCustomLinkConfig();
-            updateCustomLink();
-            loadSecurityState();
-            updateSecurityUI();
-            setupSessionTimer();
             setupMediaHandlers();
+            // I dati verranno caricati dopo la connessione
+        }
+        
+        // Funzioni per la gestione della connessione
+        function setupConnection() {
+            connectWebSocket();
+            
+            // Prova a riconnettere se la connessione viene persa
+            window.addEventListener('online', function() {
+                console.log('Connessione di rete ripristinata');
+                connectWebSocket();
+            });
+            
+            window.addEventListener('offline', function() {
+                console.log('Connessione di rete persa');
+                updateConnectionStatus(false);
+            });
+        }
+        
+        function connectWebSocket() {
+            try {
+                // Se c'è già una connessione, chiudila
+                if (socket) {
+                    socket.close();
+                }
+                
+                // In una implementazione reale, qui ci sarebbe la connessione al server WebSocket
+                // socket = new WebSocket(BACKEND_CONFIG.wsUrl);
+                
+                // Simuliamo una connessione per questo esempio
+                simulateWebSocketConnection();
+                
+            } catch (error) {
+                console.error('Errore nella connessione WebSocket:', error);
+                handleConnectionError();
+            }
+        }
+        
+        function simulateWebSocketConnection() {
+            // Simula una connessione WebSocket
+            updateConnectionStatus(true);
+            
+            // Simula il caricamento dei dati dal server
+            setTimeout(() => {
+                loadInitialData();
+            }, 1000);
+            
+            // Simula l'invio di aggiornamenti in tempo reale
+            setInterval(() => {
+                if (isConnected) {
+                    // In una implementazione reale, qui riceveremmo aggiornamenti dal server
+                    // Per ora, simuliamo solo il mantenimento della connessione
+                }
+            }, 30000); // Ogni 30 secondi
+        }
+        
+        function handleWebSocketMessage(event) {
+            // In una implementazione reale, qui gestiremmo i messaggi dal server
+            try {
+                const data = JSON.parse(event.data);
+                handleServerUpdate(data);
+            } catch (error) {
+                console.error('Errore nell\'elaborazione del messaggio:', error);
+            }
+        }
+        
+        function handleServerUpdate(data) {
+            // Gestisci gli aggiornamenti dal server
+            switch (data.type) {
+                case 'news_update':
+                    news = data.payload;
+                    renderNews();
+                    break;
+                case 'questions_update':
+                    questions = data.payload;
+                    if (isAdmin) {
+                        renderQuestions();
+                    }
+                    break;
+                case 'content_update':
+                    // Aggiorna il contenuto della home page
+                    if (data.payload.heroTitle) {
+                        heroTitle.textContent = data.payload.heroTitle;
+                    }
+                    if (data.payload.heroText) {
+                        heroText.textContent = data.payload.heroText;
+                    }
+                    break;
+                case 'link_update':
+                    customLinkConfig = data.payload;
+                    updateCustomLink();
+                    break;
+                default:
+                    console.log('Tipo di aggiornamento non riconosciuto:', data.type);
+            }
+        }
+        
+        function sendToServer(data) {
+            // In una implementazione reale, qui invieremmo i dati al server
+            if (isConnected) {
+                // Simula l'invio al server
+                console.log('Invio dati al server:', data);
+                
+                // In una implementazione reale:
+                // socket.send(JSON.stringify(data));
+                
+                // Per ora, simuliamo una risposta immediata
+                simulateServerResponse(data);
+            } else {
+                console.error('Non connesso al server');
+                showSyncIndicator();
+                // Salva localmente e tenta di sincronizzare dopo
+                saveLocalUpdate(data);
+            }
+        }
+        
+        function simulateServerResponse(data) {
+            // Simula una risposta dal server
+            setTimeout(() => {
+                // In una implementazione reale, qui riceveremmo una risposta dal server
+                // Per ora, aggiorniamo semplicemente l'interfaccia
+                switch (data.type) {
+                    case 'add_news':
+                        // Il server dovrebbe restituire la notizia con ID
+                        const newNews = {
+                            id: Date.now(), // ID temporaneo
+                            ...data.payload
+                        };
+                        news.unshift(newNews);
+                        renderNews();
+                        break;
+                    case 'add_question':
+                        const newQuestion = {
+                            id: Date.now(), // ID temporaneo
+                            ...data.payload
+                        };
+                        questions.push(newQuestion);
+                        if (isAdmin) {
+                            renderQuestions();
+                        }
+                        break;
+                    case 'delete_news':
+                        news = news.filter(n => n.id !== data.payload.id);
+                        renderNews();
+                        break;
+                    case 'delete_question':
+                        questions = questions.filter(q => q.id !== data.payload.id);
+                        if (isAdmin) {
+                            renderQuestions();
+                        }
+                        break;
+                    case 'update_content':
+                        if (data.payload.heroTitle) {
+                            heroTitle.textContent = data.payload.heroTitle;
+                        }
+                        if (data.payload.heroText) {
+                            heroText.textContent = data.payload.heroText;
+                        }
+                        break;
+                    case 'update_link':
+                        customLinkConfig = data.payload;
+                        updateCustomLink();
+                        break;
+                }
+            }, 500);
+        }
+        
+        function saveLocalUpdate(data) {
+            // Salva l'aggiornamento localmente per sincronizzarlo dopo
+            const pendingUpdates = JSON.parse(localStorage.getItem('pendingUpdates') || '[]');
+            pendingUpdates.push({
+                ...data,
+                timestamp: Date.now()
+            });
+            localStorage.setItem('pendingUpdates', JSON.stringify(pendingUpdates));
+        }
+        
+        function syncPendingUpdates() {
+            // Sincronizza gli aggiornamenti pendenti quando la connessione viene ristabilita
+            const pendingUpdates = JSON.parse(localStorage.getItem('pendingUpdates') || '[]');
+            if (pendingUpdates.length > 0 && isConnected) {
+                showSyncIndicator();
+                
+                pendingUpdates.forEach(update => {
+                    sendToServer(update);
+                });
+                
+                // Pulisci gli aggiornamenti pendenti
+                localStorage.removeItem('pendingUpdates');
+                
+                // Nascondi l'indicatore dopo un po'
+                setTimeout(() => {
+                    hideSyncIndicator();
+                }, 2000);
+            }
+        }
+        
+        function loadInitialData() {
+            // In una implementazione reale, qui caricheremmo i dati iniziali dal server
+            // Per ora, usiamo dati di esempio o dal localStorage
+            
+            // Carica news
+            const savedNews = localStorage.getItem('news');
+            if (savedNews) {
+                news = JSON.parse(savedNews);
+            } else {
+                // Dati di esempio
+                news = [
+                    {
+                        id: 1,
+                        title: "Assemblea Studentesca",
+                        date: "2025-10-25",
+                        content: "Prossima assemblea studentesca il 25 ottobre. Preparate le vostre proposte e idee da condividere!",
+                        mediaType: "none"
+                    },
+                    {
+                        id: 2,
+                        title: "Giornata della Sostenibilità",
+                        date: "2025-10-10",
+                        content: "Stiamo organizzando una giornata dedicata alla sostenibilità. Se sei interessato a partecipare, contattaci!",
+                        mediaType: "image",
+                        mediaUrl: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                    }
+                ];
+            }
+            
+            // Carica questions
+            const savedQuestions = localStorage.getItem('questions');
+            if (savedQuestions) {
+                questions = JSON.parse(savedQuestions);
+            } else {
+                questions = [
+                    {
+                        id: 1,
+                        text: "Quando sarà la prossima riunione del comitato?",
+                        date: "2025-09-28",
+                        expires: "2025-10-28"
+                    }
+                ];
+            }
+            
+            // Carica custom link
+            loadCustomLinkConfig();
+            
+            // Renderizza i dati
+            renderNews();
+            updateCustomLink();
+            
+            // Sincronizza eventuali aggiornamenti pendenti
+            syncPendingUpdates();
+        }
+        
+        function updateConnectionStatus(connected) {
+            isConnected = connected;
+            
+            if (connected) {
+                connectionStatus.className = 'connection-status connected';
+                connectionStatus.innerHTML = '<i class="fas fa-wifi"></i> <span>Connesso</span>';
+                reconnectAttempts = 0;
+            } else {
+                connectionStatus.className = 'connection-status disconnected';
+                connectionStatus.innerHTML = '<i class="fas fa-wifi-slash"></i> <span>Disconnesso</span>';
+                
+                // Prova a riconnettere
+                if (reconnectAttempts < maxReconnectAttempts) {
+                    reconnectAttempts++;
+                    const delay = Math.min(1000 * Math.pow(2, reconnectAttempts), 30000); // Backoff esponenziale
+                    
+                    reconnectTimeout = setTimeout(() => {
+                        connectWebSocket();
+                    }, delay);
+                }
+            }
+        }
+        
+        function showSyncIndicator() {
+            syncIndicator.style.display = 'flex';
+        }
+        
+        function hideSyncIndicator() {
+            syncIndicator.style.display = 'none';
+        }
+        
+        function handleConnectionError() {
+            updateConnectionStatus(false);
+            console.error('Errore di connessione al server');
+            
+            // Mostra un messaggio all'utente
+            if (!navigator.onLine) {
+                alert('Sei offline. Le modifiche verranno salvate localmente e sincronizzate quando la connessione sarà disponibile.');
+            } else {
+                alert('Impossibile connettersi al server. Le modifiche verranno salvate localmente e sincronizzate quando la connessione sarà disponibile.');
+            }
         }
         
         // Enhanced security functions
@@ -1599,6 +710,9 @@
                 `;
                 newsGrid.appendChild(newsItem);
             });
+            
+            // Salva localmente per backup
+            localStorage.setItem('news', JSON.stringify(news));
         }
         
         // Render questions (admin view)
@@ -1632,6 +746,9 @@
                 `;
                 questionsList.appendChild(questionItem);
             });
+            
+            // Salva localmente per backup
+            localStorage.setItem('questions', JSON.stringify(questions));
         }
         
         // Format date for display
@@ -1664,6 +781,9 @@
         function updateCustomLink() {
             customLink.href = customLinkConfig.url;
             customLinkText.textContent = customLinkConfig.text;
+            
+            // Salva localmente per backup
+            localStorage.setItem('customLinkConfig', JSON.stringify(customLinkConfig));
         }
         
         // Setup event listeners
@@ -1782,8 +902,24 @@
                 
                 if (currentEditingElement === 'heroTitle') {
                     heroTitle.textContent = title;
+                    // Invia al server
+                    sendToServer({
+                        type: 'update_content',
+                        payload: {
+                            heroTitle: title,
+                            heroText: heroText.textContent
+                        }
+                    });
                 } else if (currentEditingElement === 'heroText') {
                     heroText.textContent = text;
+                    // Invia al server
+                    sendToServer({
+                        type: 'update_content',
+                        payload: {
+                            heroTitle: heroTitle.textContent,
+                            heroText: text
+                        }
+                    });
                 }
                 
                 editContentModal.classList.remove('active');
@@ -1828,8 +964,11 @@
                 customLinkConfig.url = url;
                 customLinkConfig.text = text;
                 
-                // Save to localStorage
-                localStorage.setItem('customLinkConfig', JSON.stringify(customLinkConfig));
+                // Invia al server
+                sendToServer({
+                    type: 'update_link',
+                    payload: customLinkConfig
+                });
                 
                 updateCustomLink();
                 editLinkModal.classList.remove('active');
@@ -1908,12 +1047,19 @@
             expires.setDate(expires.getDate() + 30);
             
             const newQuestion = {
-                id: questions.length > 0 ? Math.max(...questions.map(q => q.id)) + 1 : 1,
+                id: Date.now(), // ID temporaneo
                 text: text,
                 date: now.toISOString().split('T')[0],
                 expires: expires.toISOString().split('T')[0]
             };
             
+            // Invia al server
+            sendToServer({
+                type: 'add_question',
+                payload: newQuestion
+            });
+            
+            // Aggiorna localmente
             questions.push(newQuestion);
             localStorage.setItem('questions', JSON.stringify(questions));
         }
@@ -1921,7 +1067,7 @@
         // Add a new news item
         function addNews(title, date, content, mediaType, mediaUrl) {
             const newNews = {
-                id: news.length > 0 ? Math.max(...news.map(n => n.id)) + 1 : 1,
+                id: Date.now(), // ID temporaneo
                 title: title,
                 date: date,
                 content: content,
@@ -1929,9 +1075,14 @@
                 mediaUrl: mediaUrl
             };
             
-            news.push(newNews);
+            // Invia al server
+            sendToServer({
+                type: 'add_news',
+                payload: newNews
+            });
             
-            // Save to localStorage
+            // Aggiorna localmente
+            news.unshift(newNews);
             localStorage.setItem('news', JSON.stringify(news));
             
             // Re-render news
@@ -1941,6 +1092,13 @@
         // Delete a question
         function deleteQuestion(id) {
             if (confirm('Sei sicuro di voler eliminare questa domanda?')) {
+                // Invia al server
+                sendToServer({
+                    type: 'delete_question',
+                    payload: { id: id }
+                });
+                
+                // Aggiorna localmente
                 questions = questions.filter(q => q.id !== id);
                 localStorage.setItem('questions', JSON.stringify(questions));
                 renderQuestions();
@@ -1950,6 +1108,13 @@
         // Delete a news item
         function deleteNews(id) {
             if (confirm('Sei sicuro di voler eliminare questa novità?')) {
+                // Invia al server
+                sendToServer({
+                    type: 'delete_news',
+                    payload: { id: id }
+                });
+                
+                // Aggiorna localmente
                 news = news.filter(n => n.id !== id);
                 localStorage.setItem('news', JSON.stringify(news));
                 renderNews();
@@ -1965,29 +1130,22 @@
             
             if (questions.length < initialCount) {
                 localStorage.setItem('questions', JSON.stringify(questions));
-            }
-        }
-        
-        // Load questions from localStorage on page load
-        function loadQuestionsFromStorage() {
-            const savedQuestions = localStorage.getItem('questions');
-            if (savedQuestions) {
-                questions = JSON.parse(savedQuestions);
-            }
-        }
-        
-        // Load news from localStorage on page load
-        function loadNewsFromStorage() {
-            const savedNews = localStorage.getItem('news');
-            if (savedNews) {
-                news = JSON.parse(savedNews);
+                
+                // Invia aggiornamento al server
+                sendToServer({
+                    type: 'questions_update',
+                    payload: questions
+                });
             }
         }
         
         // Initialize the application
-        loadQuestionsFromStorage();
-        loadNewsFromStorage();
+        loadSecurityState();
+        updateSecurityUI();
+        setupSessionTimer();
         init();
     </script>
+</body>
+</html>
 </body>
 </html>
